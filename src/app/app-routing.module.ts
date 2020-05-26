@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes, PreloadAllModules, Router } from '@angular/router';
-import { PageLoginComponent } from './login/pages/page-login/page-login.component';
+import { PreloadAllModules, Router, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
