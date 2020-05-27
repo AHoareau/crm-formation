@@ -4,8 +4,8 @@ import { StateOrder } from '../enums/state-order.enum';
 export class Order implements OrderI{
   tjmHt = 500;
   nbJours = 1;
-  tva : 20;
-  state: StateOrder.OPTION;
+  tva = 20;
+  state= StateOrder.OPTION;
   typePresta: string;
   client: string;
   comment: string;
