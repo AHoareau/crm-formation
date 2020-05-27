@@ -29,7 +29,6 @@ export class PageListOrdersComponent implements OnInit {
   public changeState(item: Order, event) {
     this.os.changeState(item, event.target.value).subscribe((res) => {
       // traiter la res de l'api, codes erreur etc...
-      console.log("change state")
       item.state = res.state;
     });
   }
