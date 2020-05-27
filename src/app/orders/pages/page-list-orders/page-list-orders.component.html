@@ -1,4 +1,4 @@
-<app-table-light *ngIf="collection" [headers]="headers">
+<app-table-light *ngIf="collection$ | async as collection" [headers]="headers">
 
 <tr *ngFor="let item of collection">
   <td>{{ item.typePresta }}</td>
@@ -18,4 +18,4 @@
 
 <app-btn [label]="btnRoute.label" [route]="btnRoute.route"></app-btn>
 <app-btn [label]="btnHref.label" [href]="btnHref.href"></app-btn>
-<app-btn [label]="btnAction.label" [action]="btnAction.action" (clicked)="openPopup()"></app-btn>
+<app-btn [label]="btnAction.label" [action]="btnAction.action" (clicked)="openPopUp()"></app-btn>
