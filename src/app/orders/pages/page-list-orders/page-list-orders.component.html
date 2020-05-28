@@ -1,4 +1,4 @@
-<app-template-a title="Orders" subtitle="All orders">
+<app-template-a [title]="title" [subtitle]="subtitle">
 
   <app-table-light *ngIf="collection$ | async as collection" [headers]="headers">
 

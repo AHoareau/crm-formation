@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PageListClientsComponent } from './pages/page-list-clients/page-list-clients.component';
 import { ClientsRoutingModule } from './clients-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -9,7 +10,8 @@ import { ClientsRoutingModule } from './clients-routing.module';
   declarations: [PageListClientsComponent],
   imports: [
     CommonModule,
-    ClientsRoutingModule
+    ClientsRoutingModule,
+    SharedModule
   ]
 })
 export class ClientsModule { }

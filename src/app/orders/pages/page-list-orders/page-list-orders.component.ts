@@ -1,9 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Order } from 'src/app/shared/models/order';
-import { OrdersService } from '../../services/orders.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { StateOrder } from 'src/app/shared/enums/state-order.enum';
 import { Btn } from 'src/app/shared/interfaces/btn';
-import { Subscription, Observable } from 'rxjs';
+import { Order } from 'src/app/shared/models/order';
+import { OrdersService } from '../../services/orders.service';
 @Component({
   selector: 'app-page-list-orders',
   templateUrl: './page-list-orders.component.html',
@@ -11,6 +11,8 @@ import { Subscription, Observable } from 'rxjs';
 })
 export class PageListOrdersComponent implements OnInit, OnDestroy {
   // public collection: Order[];
+  public title: string;
+  public subtitle: string;
   public collection$: Observable<Order[]>;
   public headers: string[];
   public btnRoute: Btn;
@@ -20,6 +22,8 @@ export class PageListOrdersComponent implements OnInit, OnDestroy {
   // private sub: Subscription;
   constructor(private os: OrdersService) { }
   ngOnInit(): void {
+    this.title = 'Orders';
+    this.subtitle = 'All orders';
     this.btnRoute = {
       label: 'Add an order',
       route: 'add'
