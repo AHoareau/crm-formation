@@ -1,21 +1,32 @@
-<app-table-light *ngIf="collection$ | async as collection" [headers]="headers">
+<app-template-a title="Orders" subtitle="All orders">
 
-<tr *ngFor="let item of collection">
-  <td>{{ item.typePresta }}</td>
-  <td>{{ item.client }}</td>
-  <td>{{ item.nbJours }}</td>
-  <td>{{ item.tjmHt | currency: 'EUR' }}</td>
-  <td>{{ item | total | currency: 'EUR' }}</td>
-  <td>{{ item | total: 'ttc' | currency: 'EUR' }}</td>
-  <td [appState]="item.state">
-    <select (change)="changeState(item, $event)">
-      <option *ngFor="let state of states" [value]="state" [selected]="state === item.state">{{ state }}</option>
-    </select>
-  </td>
-</tr>
+  <app-table-light *ngIf="collection$ | async as collection" [headers]="headers">
 
-</app-table-light>
+    <tr *ngFor="let item of collection">
+      <td>{{ item.typePresta }}</td>
+      <td>{{ item.client }}</td>
+      <td>{{ item.nbJours }}</td>
+      <td>{{ item.tjmHt | currency: 'EUR' }}</td>
+      <td>{{ item | total | currency: 'EUR' }}</td>
+      <td>{{ item | total: 'ttc' | currency: 'EUR' }}</td>
+      <td [appState]="item.state">
+        <select (change)="changeState(item, $event)">
+          <option *ngFor="let state of states" [value]="state" [selected]="state === item.state">{{ state }}</option>
+        </select>
+      </td>
+    </tr>
 
-<app-btn [label]="btnRoute.label" [route]="btnRoute.route"></app-btn>
-<app-btn [label]="btnHref.label" [href]="btnHref.href"></app-btn>
-<app-btn [label]="btnAction.label" [action]="btnAction.action" (clicked)="openPopUp()"></app-btn>
+  </app-table-light>
+
+  <app-btn [label]="btnRoute.label" [route]="btnRoute.route"></app-btn>
+  <app-btn [label]="btnHref.label" [href]="btnHref.href"></app-btn>
+  <app-btn [label]="btnAction.label" [action]="btnAction.action" (clicked)="openPopUp()"></app-btn>
+
+  <app-text [page]="true">
+    <h1>title</h1>
+    <h2>subtitle</h2>
+    <h3>subsubtitle</h3>
+    <p>A very nice text</p>
+  </app-text>
+
+</app-template-a>

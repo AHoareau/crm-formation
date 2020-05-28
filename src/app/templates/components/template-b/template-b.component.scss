@@ -1,0 +1,12 @@
+@import 'theme';
+div {
+  background: $color2;
+  padding: 2rem;
+  text-align: center;
+  h1 {
+    margin-top: 0;
+  }
+  h2 {
+    margin-bottom: 0;
+  }
+}
