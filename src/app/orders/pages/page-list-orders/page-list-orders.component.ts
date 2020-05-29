@@ -5,6 +5,7 @@ import { StateOrder } from 'src/app/shared/enums/state-order.enum';
 import { Btn } from 'src/app/shared/interfaces/btn';
 import { Order } from 'src/app/shared/models/order';
 import { OrdersService } from '../../services/orders.service';
+import { NavLink } from 'src/app/shared/interfaces/nav-link';
 
 @Component({
   selector: 'app-page-list-orders',
@@ -23,7 +24,7 @@ export class PageListOrdersComponent implements OnInit {
   public states = Object.values(StateOrder);
   // private sub: Subscription;
 
-
+  public itemsLinks: NavLink[];
 
   constructor(
     private os: OrdersService,
@@ -31,6 +32,11 @@ export class PageListOrdersComponent implements OnInit {
     public route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.itemsLinks = [
+      { route: 'detail', label: 'Détail'},
+      { route: 'comment', label: 'Comment'}
+    ]
+
     this.btnRoute = {
       label: 'Add an order',
       route: 'add'
@@ -86,6 +92,10 @@ export class PageListOrdersComponent implements OnInit {
 
   public edit(item: Order){
     this.router.navigate(['edit',item.id],{relativeTo: this.route});
+  }
+
+  public getItem(item: Order) {
+      this.os.detailItem$.next(item);
   }
 
 }

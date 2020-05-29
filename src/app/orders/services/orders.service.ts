@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { Order } from 'src/app/shared/models/order';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
@@ -12,9 +12,13 @@ import { StateOrder } from 'src/app/shared/enums/state-order.enum';
 export class OrdersService {
   private pCollection: Observable<Order[]>;
   private urlApi = environment.urlApi;
+
+  public detailItem$: BehaviorSubject<Order> = new BehaviorSubject(null);
+
   constructor(private http: HttpClient) {
     this.collection = this.http.get<Order[]>(`${this.urlApi}orders`).pipe(
       map((tab) => {
+        this.detailItem$.next(tab[0]);
         return tab.map((obj) => {
           return new Order(obj);
         })

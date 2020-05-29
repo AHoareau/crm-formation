@@ -1,0 +1,8 @@
+<ng-container *ngIf="items$ | async as item">
+
+<app-text [page]="true">
+  <p>{{ item.client }}</p>
+  <p>{{ item.tjmHt }}</p>
+</app-text>
+
+</ng-container>
