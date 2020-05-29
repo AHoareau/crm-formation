@@ -11,15 +11,20 @@ import { OrdersService } from '../../services/orders.service';
 export class PageAddOrderComponent implements OnInit {
   public title: string;
   public subtitle: string;
+
   constructor(
     private os: OrdersService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
+
   ngOnInit(): void {
-    this.title = 'Orders';
-    this.subtitle = 'Add an order';
+    this.route.data.subscribe((datas) => {
+      this.title = datas.title;
+      this.subtitle = datas.subtitle;
+    });
   }
+
   public add(item: Order) {
     this.os.add(item).subscribe((res) => {
       // console.log(res);
@@ -29,4 +34,5 @@ export class PageAddOrderComponent implements OnInit {
       this.router.navigate(['../'], {relativeTo: this.route});
     });
   }
+
 }
