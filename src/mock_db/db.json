@@ -15,15 +15,15 @@
       "nbJours": 1,
       "tva": 20,
       "state": "CONFIRMED",
-      "typePresta": "formation",
+      "typePresta": "formationtest",
       "client": "Modis",
       "comment": "merci modis",
       "id": 2
     },
     {
-      "tjmHt": 500,
+      "tjmHt": 10,
       "nbJours": 1,
-      "tva": 20,
+      "tva": 2014871891871,
       "state": "OPTION",
       "typePresta": "newType",
       "client": "Amu",

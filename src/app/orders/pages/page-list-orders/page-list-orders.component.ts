@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { StateOrder } from 'src/app/shared/enums/state-order.enum';
 import { Btn } from 'src/app/shared/interfaces/btn';
@@ -23,8 +23,11 @@ export class PageListOrdersComponent implements OnInit {
   public states = Object.values(StateOrder);
   // private sub: Subscription;
 
+
+
   constructor(
     private os: OrdersService,
+    private router: Router,
     public route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -79,6 +82,10 @@ export class PageListOrdersComponent implements OnInit {
           this.collection$.next(col);
         });
     });
+  }
+
+  public edit(item: Order){
+    this.router.navigate(['edit',item.id],{relativeTo: this.route});
   }
 
 }
