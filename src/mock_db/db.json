@@ -29,26 +29,6 @@
       "client": "Amu",
       "comment": "azeazeaze",
       "id": 3
-    },
-    {
-      "tjmHt": 500,
-      "nbJours": 1,
-      "tva": 20,
-      "state": "OPTION",
-      "typePresta": null,
-      "client": null,
-      "comment": null,
-      "id": 4
-    },
-    {
-      "tjmHt": 500,
-      "nbJours": 1,
-      "tva": 20,
-      "state": "CONFIRMED",
-      "typePresta": "aze",
-      "client": "aze",
-      "comment": "aze",
-      "id": 5
     }
   ],
   "clients": [
